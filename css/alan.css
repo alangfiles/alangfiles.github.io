@@ -6,7 +6,7 @@ html {
   background-size: cover;
 }
 
-html .postHtml{
+#post-html{
     background: url('../img/10.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
