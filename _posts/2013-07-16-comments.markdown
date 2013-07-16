@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Comments, rss, and less"
+date:   2013-07-14 17:35:47
+categories: 
+comments: true
+---
+
+Okay, so I tried to pick up some things off other sites and get disqus working, which hopefully allows comments underneath this post.... we'll see.
