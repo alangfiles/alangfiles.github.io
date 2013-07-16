@@ -28,7 +28,7 @@
     <p class="meta">{{ page.date | date_to_string }}</p>
       {{ content }}
       <a href="#" id="comments-button" onclick="javascript:toggleComments();return false;" class="float:right;">Show Comments</a>
-      <div id="enable-comments">
+      <div id="enable-comments" style="display:none;">
         <div id="disqus_thread"></div>
       </div>
     </div>
@@ -40,11 +40,11 @@
       {
         if(commentsShown)
         { 
-            document.getElementById('enable-comments').style.visibility = "visible"; 
+            document.getElementById('enable-comments').style.display = "block"; 
             document.getElementById('comments-button').innerHTML = "Hide Comments";
         }
         else{
-          document.getElementById('enable-comments').style.visibility = "hidden";
+          document.getElementById('enable-comments').style.display = "none";
           document.getElementById('comments-button').innerHTML = "Show Comments";
         }
         
