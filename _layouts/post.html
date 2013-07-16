@@ -27,11 +27,41 @@
       <h2>{{ page.title }}</h2>
     <p class="meta">{{ page.date | date_to_string }}</p>
       {{ content }}
+
+      {% if page.comments %}
+
       <a href="#" id="comments-button" onclick="javascript:toggleComments();return false;" class="float:right;">Show Comments</a>
       <div id="enable-comments" style="display:none;">
-        <div id="disqus_thread"></div>
+          <div id="disqus_thread"></div>
+
+          <script type="text/javascript">
+            var disqus_title = "{{ page.title }}";
+            var disqus_url = "http://dcreager.net{{ page.url }}";
+          </script>
+
+          <script
+             type="text/javascript"
+             src="http://disqus.com/forums/dcreager/embed.js">
+          </script>
+          <noscript>
+            <a href="http://dcreager.disqus.com/?url=ref">View the discussion thread.</a>
+          </noscript>
+
+          <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
       </div>
+      {% endif %}
+
     </div>
+    {% if page.tags != empty %}
+      <div class="posttags">
+        Tags:
+        <ul>
+          {% for tag in page.tags %}
+          <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
   </div>
   
     <script type="text/javascript">
