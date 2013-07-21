@@ -74,3 +74,9 @@ nav a{
   display:inline;
   padding-left:10px;
 }
+
+#resume-body{
+  width:80%;
+  padding:20px;
+  background-color: #fff;
+}
