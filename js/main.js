@@ -1,7 +1,0 @@
-$(function() {
-  callFact();
-});
-
-function changeBackground(){
-	
-}
