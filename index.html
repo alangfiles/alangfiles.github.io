@@ -89,24 +89,26 @@
     </p>
   </footer>
   </body>
+  
   <script>
-    var skills=["Party Goer", "Linguistic Enthusiast", "Sports Fan", "Engineer","Programmer","Nethack Demigod","Juggler","Designer", "Native", "Web Designer", "Fencer"];
     document.getElementById('skills-refresh').addEventListener('click', function(){
       refreshSkills();
     }, false);
 
     function refreshSkills(){
       var randomSkills = getRandomSkills();
-      document.getElementById("skill-1").innerHTML = skills[randomSkills[0]];
-      document.getElementById("skill-2").innerHTML = skills[randomSkills[1]];
-      document.getElementById("skill-3").innerHTML = skills[randomSkills[2]];
+      document.getElementById("skill-1").innerHTML = randomSkills[0];
+      document.getElementById("skill-2").innerHTML = randomSkills[1];
+      document.getElementById("skill-3").innerHTML = randomSkills[2];
     }
 
     function getRandomSkills(){
+      var skills=["Party Goer", "Linguistic Enthusiast", "Sports Fan", "Engineer","Programmer","Nethack Demigod","Juggler","Designer", "Native", "Web Designer", "Fencer"];
       var randomSkills = [];
-      while(randomSkills.length < 3){
+
+      while(randomSkills.length < 3){ 
          var skill = skills[Math.floor(Math.random() * skills.length)];
-         if(randomSkills.indexOf(skill) < 0){
+         if(randomSkills.indexOf(skill) < 0){ //if the entry isn't already used, add it
             randomSkills.push(skill);
          }
       }
