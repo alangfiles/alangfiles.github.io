@@ -53,6 +53,15 @@
     footer{
       color:#fff;
       text-align:center;
+      position:absolute;
+      bottom:0;
+      left:0;
+      padding:20px;
+    }
+
+    footer h1{
+      font-size: 80px;
+      margin-bottom: 40px;
     }
   </style>
 </head>
@@ -81,15 +90,27 @@
   </footer>
   </body>
   <script>
-    var skills=["Engineer","Programmer","Ascending Nethack","Juggler","Designer", "Native", "Web Designer"]
+    var skills=["Party Goer", "Linguistic Enthusiast", "Sports Fan", "Engineer","Programmer","Nethack Demigod","Juggler","Designer", "Native", "Web Designer", "Fencer"];
     document.getElementById('skills-refresh').addEventListener('click', function(){
       refreshSkills();
     }, false);
 
     function refreshSkills(){
-      document.getElementById("skill-1").innerHTML = skills[Math.floor(Math.random() * skills.length)];
-      document.getElementById("skill-2").innerHTML = skills[Math.floor(Math.random() * skills.length)];
-      document.getElementById("skill-3").innerHTML = skills[Math.floor(Math.random() * skills.length)];
+      var randomSkills = getRandomSkills();
+      document.getElementById("skill-1").innerHTML = skills[randomSkills[0]];
+      document.getElementById("skill-2").innerHTML = skills[randomSkills[1]];
+      document.getElementById("skill-3").innerHTML = skills[randomSkills[2]];
+    }
+
+    function getRandomSkills(){
+      var randomSkills = [];
+      while(randomSkills.length < 3){
+         var skill = skills[Math.floor(Math.random() * skills.length)];
+         if(randomSkills.indexOf(skill) < 0){
+            randomSkills.push(skill);
+         }
+      }
+      return randomSkills;
     }
 
   </script>
