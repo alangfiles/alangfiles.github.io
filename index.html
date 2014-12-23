@@ -54,7 +54,7 @@
 </head>
 <body>
   <div id="info">
-    <!-- <h1>Alan Files</h1> -->
+    
     <nav>
     <ul>
     <!-- <li> <a href="http://alangfiles.github.com/blog/">Blog</a> </li> -->
@@ -66,5 +66,22 @@
   </nav>
   </div>
   
+  <footer>
+    <h1>Alan Files</h1>
+    <p> <span id="skill-1">Engingeer</span> &nbsp;&bull;&nbsp; <span id="skill-2">Designer</span> &nbsp;&bull;&nbsp; <span id="skill-3">Programming</span></p><i id='skills-refresh' class="fa fa-refresh fa-1x" title="Refresh"></i>
+  </footer>
   </body>
+  <script>
+    var skills=["Engingeer","Programmer","Ascending Nethack","Juggler","Designer", "Native", "Web Designer"]
+    document.getElementById('skills-refresh').addEventListener('click'), function(){
+      refreshSkills();
+    }, false);
+
+    function refreshSkills(){
+      document.getElementById("skill-1").innerHTML = skills[Math.floor(Math.random() * skills.length)];
+      document.getElementById("skill-2").innerHTML = skills[Math.floor(Math.random() * skills.length)];
+      document.getElementById("skill-3").innerHTML = skills[Math.floor(Math.random() * skills.length)];
+    }
+
+  </script>
 </html>
