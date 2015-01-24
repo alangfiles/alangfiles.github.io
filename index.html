@@ -43,7 +43,20 @@
     nav a{
       text-decoration:none;
       color:#6c6868;
-      padding:10px;
+      padding:10px;    
+    }
+    nav a:hover .slideout{
+      display:block;
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+    }
+    .slideout{
+      font-size: 40px;
+      padding-left: 30px;
+      color:#444;
+      display:none;
     }
     footer{
       color:#fff;
@@ -58,6 +71,7 @@
       font-size: 80px;
       margin-bottom: 40px;
     }
+
   </style>
 </head>
 <body>
@@ -66,14 +80,29 @@
     <nav>
     <ul>
     <!-- <li> <a href="http://alangfiles.github.com/blog/">Blog</a> </li> -->
-    <li> <a href="resume.html" class="fa fa-file-text fa-4x" title="Resume"></a> </li>
-    <li> <a href="http://github.com/alangfiles" class="fa fa-github fa-4x" title="Github"></a> </li>
-    <li> <a href="http://twitter.com/alangfiles" class="fa fa-twitter fa-4x" title="Twitter"></a> </li>
-    <li> <a href="http://www.linkedin.com/in/alangfiles/" class="fa fa-linkedin-square fa-4x" title="LinkedIn"></a> </li>
+    <li> 
+      <a href="resume.html" class="fa fa-file-text fa-4x js-slide-button" title="Resume">
+        <span class="slideout">Resume</span>
+      </a> 
+    </li>
+    <li> 
+      <a href="http://github.com/alangfiles" class="fa fa-github fa-4x js-slide-button" title="Github">
+        <span class="slideout">Github</span>
+      </a> 
+      
+    </li>
+    <li> 
+      <a href="http://twitter.com/alangfiles" class="fa fa-twitter fa-4x js-slide-button" title="Twitter">
+        <span class="slideout">Twitter</span>
+      </a> 
+    </li>
+    <li> 
+      <a href="http://www.linkedin.com/in/alangfiles/" class="fa fa-linkedin-square fa-4x js-slide-button" title="LinkedIn">
+        <span class="slideout">LinkedIn</span>
+      </a> 
+    </li>
     </ul>
   </nav>
   </div>
-  
   </body>
-
 </html>
