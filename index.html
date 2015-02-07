@@ -134,12 +134,34 @@
         <p>It looks like you're looking at my website.</p>
         <p>Would you like help?</p>
         <p style="margin:8px;"><a class='clippy-link' href="resume.html">View my Resume</a></p>
-        <p  style="margin:8px;"><a class='clippy-link' href="#">Just view the website without help</a></p>
+        <p  style="margin:8px;"><a class='clippy-link' onclick="showSecondHelpBox();return false;" href="#">Just view the website without help</a></p>
         <br>
-        <input type=checkbox>Don't show me this tip again
+        <label><input type=checkbox  onclick="showSecondHelpBox();return false;">Don't show me this tip again</label>
     </div>
     <img id="alan-clippy" src="img/alan-clippy.png">
-    
+  
+    <script>
+        //listener for help box
+        var OriginalHelpBox = "<p>It looks like you're looking at my website.</p><p>Would you like help?</p><p style='margin:8px;'><a class='clippy-link' href='resume.html'>View my Resume</a></p><p  style='margin:8px;'><a class='clippy-link' id='view-without-help' href='#'>Just view the website without help</a></p><br><label><input type=checkbox onclick='showSecondHelpBox();return false;'>Don't show me this tip again</label>";
+        
+        var SecondHelpBox = "<p>Okay!</p><p> I'll just leave this textbox, in case you need help!</p><p style='margin:8px;'><a class='clippy-link' href='#' onclick='showThirdHelpBox();return false;'>Please remove this textbox</a></p>";
+        
+        var ThirdHelpBox = "<p>It looks like you're trying to remove this box!</p><p> But you never know when you'll need a helpful tip!</p><p style='margin:8px;'><a class='clippy-link' href='#' onclick='showFirstHelpBox();return false'>For the love of clippy, why?!</a></p><p>Enjoy the site!</p>";
+        
+        function showSecondHelpBox(){
+            document.getElementById("clippy-bubble").innerHTML = SecondHelpBox;
+        }
+        
+        function showThirdHelpBox(){
+            document.getElementById("clippy-bubble").innerHTML = ThirdHelpBox;
+        }
+        
+        function showFirstHelpBox(){
+            document.getElementById("clippy-bubble").innerHTML = OriginalHelpBox;
+        }
+        
+        
+    </script>
   
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
