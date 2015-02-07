@@ -142,7 +142,7 @@
   
     <script>
         //listener for help box
-        var OriginalHelpBox = "<p>It looks like you're looking at my website.</p><p>Would you like help?</p><p style='margin:8px;'><a class='clippy-link' href='resume.html'>View my Resume</a></p><p  style='margin:8px;'><a class='clippy-link' id='view-without-help' href='#'>Just view the website without help</a></p><br><label><input type=checkbox onclick='showSecondHelpBox();return false;'>Don't show me this tip again</label>";
+        var OriginalHelpBox = "<p>It looks like you're looking at my website.</p><p>Would you like help?</p><p style='margin:8px;'><a class='clippy-link' href='resume.html'>View my Resume</a></p><p  style='margin:8px;'><a class='clippy-link' onclick='showSecondHelpBox();return false;' href='#'>Just view the website without help</a></p><br><label><input type=checkbox onclick='showSecondHelpBox();return false;'>Don't show me this tip again</label>";
         
         var SecondHelpBox = "<p>Okay!</p><p> I'll just leave this textbox, in case you need help!</p><p style='margin:8px;'><a class='clippy-link' href='#' onclick='showThirdHelpBox();return false;'>Please remove this textbox</a></p>";
         
