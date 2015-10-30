@@ -1,6 +1,6 @@
-name: Dat site title tho
+name: Alan G Files Blog
 markdown: redcarpet
 pygments: true
-description: "Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-url: "jekyll-new.joelglovier.com"
+description: "A little something about the author, and where his mind wanders"
+url: "alangfiles.github.io/blog"
 permalink: /posts/:title
