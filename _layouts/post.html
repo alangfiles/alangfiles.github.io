@@ -1,111 +1,15 @@
-<!DOCTYPE html>
-<html id="post-html">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/alan.css">
-  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-<body>
-  <div id="post-container">
-   	<nav id="post-menu">
-      <ul>
-        <li> <a href="http://alangfiles.github.com/blog/">Blog Entries</a> </li>
-      </ul>
-    </nav>
-    
-    <div class="post">
-      <h2>{{ page.title }}</h2>
-    <p class="meta">{{ page.date | date_to_string }}</p>
-      {{ content }}
+---
+layout: default
+---
+<div class="post">
 
-      {% if page.comments %}
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+  </header>
 
-      <a href="#" id="comments-button" onclick="javascript:toggleComments();return false;" class="float:right;">Show Comments</a>
-      <div id="enable-comments" style="display:none;">
-          <div id="disqus_thread"></div>
+  <article class="post-content">
+  {{ content }}
+  </article>
 
-          <script type="text/javascript">
-            var disqus_title = "{{ page.title }}";
-            var disqus_url = "http://dcreager.net{{ page.url }}";
-          </script>
-
-          <script
-             type="text/javascript"
-             src="http://disqus.com/forums/dcreager/embed.js">
-          </script>
-          <noscript>
-            <a href="http://dcreager.disqus.com/?url=ref">View the discussion thread.</a>
-          </noscript>
-      </div>
-      {% endif %}
-
-    </div>
-    {% if page.tags != empty %}
-      <div class="posttags">
-        Tags:
-        <ul>
-          {% for tag in page.tags %}
-          <li><a href="/tags/{{ tag }}/">{{ tag }}</a></li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
-  </div>
-  
-    <script type="text/javascript">
-    var commentsShown = false;
-      function toggleComments()
-      {
-        if(!commentsShown)
-        { 
-            document.getElementById('enable-comments').style.display = "block"; 
-            document.getElementById('comments-button').innerHTML = "Hide Comments";
-            commentsShown = true;
-        }
-        else{
-          document.getElementById('enable-comments').style.display = "none";
-          document.getElementById('comments-button').innerHTML = "Show Comments";
-          commentsShown = false;
-        }
-        
-      }
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'alanfilesblog'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-
-  <script src="/js/vendor/jquery-1.8.2.min.js"></script>
-  <script src="/js/main.js"></script>
-  <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'alanfilesblog'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
-  </body>
-</html>
+</div>

@@ -1,3 +1,6 @@
-name: Alan Files blog
+name: alangfiles blog
 markdown: redcarpet
-pygments: true
+highlighter: pygments
+description: "A little something about the author, and where his mind wanders"
+url: "alangfiles.github.io/blog"
+permalink: /posts/:title
