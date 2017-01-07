@@ -57,7 +57,7 @@ Alright, penance paid. Forgive me Martin Gardner.
 
 So, what have I learned for the general case... a card gets back to its original position in x shuffles, according ot the equation:
 
-(2^x)%(n-1) = 1
+`(2^x)%(n-1) = 1`
 
 `x` is the number of shuffles
 `n` is the number of cards 
