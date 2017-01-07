@@ -177,6 +177,6 @@ r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=
   i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
 ```
 # Final one liner:
-{% highlight javascript %}
+``` javascript
 i=13;r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=>i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
-{% endhighlight %}
+```

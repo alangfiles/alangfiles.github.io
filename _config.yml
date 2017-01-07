@@ -23,8 +23,13 @@ twitter_username: alangfiles
 github_username:  alangfiles
 
 # Build settings
+highlighter: rouge
 markdown: kramdown
-#theme: minima
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
+  
 gems:
   - jekyll-feed
 exclude:
