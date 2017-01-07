@@ -6,7 +6,7 @@ categories: codegolf kata
 ---
 
 
-#Golfing down the code kata for Arabic Numeral to Roman Numeral conversion.
+# Golfing down the code kata for Arabic Numeral to Roman Numeral conversion.
 *Note: all character counts disregard whitespace, and I just explode the example code for readability :)
 The basic idea:
 ```javascript
@@ -16,7 +16,7 @@ for each roman numeral value:
     recursively call the function with the difference between roman value and input number as the new input number
 ```
     
-##First Attempt (248 characters)
+## First Attempt (248 characters)
 In which I try to solve the problem somewhat rationally.
 ```javascript
 function toRoman(num){
@@ -32,7 +32,7 @@ function toRoman(num){
 }
 ```
 
-##Second Attempt
+## Second Attempt
 In which I remove some variables, and add 'temp' (which will make it into even the shortest version)
 ```javascript
 function toRoman(num){
@@ -48,7 +48,7 @@ function toRoman(num){
 }
 ```
 
-##Third Attempt
+## Third Attempt
 In which I make most of the variable names meaningless, but leave the function name (for now...)
 ```javascript
 function toRoman(n){
@@ -115,7 +115,7 @@ r=function(n){
 }
 ```
 
-##141 chars
+## 141 chars
 In which I have the idea to combine the roman array and arabic array into one, and split on 'digit' and 'non-digit'
 Unfortunately, this saves no space.
 ```javascript
@@ -129,7 +129,7 @@ r=function(n){
 
 ## None of the previous solutions are valid.
 I forgot 2 roman numerals: 'D' (500), and 'CD' (400), so gotta add it, and the space savings from the single data array finally show up!
-####154 old way
+#### 154 old way
 ```javascript
 r=function(n){
   for(i=13;i;)
@@ -138,7 +138,7 @@ r=function(n){
   return ''
 }
 ```
-####150 new way! 
+#### 150 new way! 
 ```javascript
 r=function(n){
   for(i=13,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000";i;)
@@ -148,7 +148,7 @@ r=function(n){
 }
 ```
 
-##147 chars
+## 147 chars
 In which we make a single return!
 ```javascript
 r=function(n){
@@ -158,7 +158,7 @@ r=function(n){
   }
 ```
 
-##139 Chars
+## 139 Chars
 time to use ECMA6 arrow notation to make it tweetable:
 ```javascript
 r=n=>{
@@ -168,7 +168,7 @@ r=n=>{
 }
 ```
 
-#125 chars
+# 125 chars
 Golfed down with help, removed the for loop, and call the function recursively for that. using ecma6 default parameters
 note: now the function is one time use, since `i` set outside of it.
 ```javascript
@@ -176,7 +176,7 @@ i=13;
 r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=>
   i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
 ```
-#Final one liner:
+# Final one liner:
 ```javascript
 i=13;r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=>i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
 ```
