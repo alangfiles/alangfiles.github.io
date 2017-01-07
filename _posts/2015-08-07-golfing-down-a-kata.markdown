@@ -160,7 +160,7 @@ r=function(n){
 
 ## 139 Chars
 time to use ECMA6 arrow notation to make it tweetable:
-```javascript
+``` javascript
 r=n=>{
   for(i=13,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000";i;)
     if((t=n-a.split(/\D+/)[i--])>=0)
@@ -171,11 +171,13 @@ r=n=>{
 # 125 chars
 Golfed down with help, removed the for loop, and call the function recursively for that. using ecma6 default parameters
 note: now the function is one time use, since `i` set outside of it.
+
 ``` javascript
 i=13;
 r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=>
   i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
 ```
+
 # Final one liner:
 ``` javascript
 i=13;r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=>i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
