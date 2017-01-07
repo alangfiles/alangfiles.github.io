@@ -9,16 +9,16 @@ categories: codegolf kata
 # Golfing down the code kata for Arabic Numeral to Roman Numeral conversion.
 *Note: all character counts disregard whitespace, and I just explode the example code for readability :)
 The basic idea:
-~~~ javascript
+``` javascript
 for each roman numeral value:
   if that value is less than the input number:
     output the corresponding roman numeral, and 
     recursively call the function with the difference between roman value and input number as the new input number
-~~~
+```
     
 ## First Attempt (248 characters)
 In which I try to solve the problem somewhat rationally.
-~~~ javascript
+``` javascript
 function toRoman(num){
     if(num<=0){return '';} //return condition for recursive call
   var map = [1000,'M',900,'CM',100,'C',90,'XC',50,'L',40,'XL',10,'X',9,'IX',5,'V',4,'IV',1,'I'];
@@ -30,11 +30,11 @@ function toRoman(num){
     }
   }
 }
-~~~
+```
 
 ## Second Attempt
 In which I remove some variables, and add 'temp' (which will make it into even the shortest version)
-~~~ javascript
+``` javascript
 function toRoman(num){
   if(num<=0)return '';
   map=[1000,'M',900,'CM',100,'C',90,'XC',50,'L',40,'XL',10,'X',9,'IX',5,'V',4,'IV',1,'I'];
@@ -46,11 +46,11 @@ function toRoman(num){
     }
   }
 }
-~~~
+```
 
 ## Third Attempt
 In which I make most of the variable names meaningless, but leave the function name (for now...)
-~~~ javascript
+``` javascript
 function toRoman(n){
   if(n<=0)return '';
   m=[1000,'M',900,'CM',100,'C',90,'XC',50,'L',40,'XL',10,'X',9,'IX',5,'V',4,'IV',1,'I'];
@@ -62,10 +62,10 @@ function toRoman(n){
     }
   }
 }
-~~~
+```
 
 In which I rearrange the logic, 
-~~~ javascript
+``` javascript
 function toRoman(n){
   m=[1000,'M',900,'CM',100,'C',90,'XC',50,'L',40,'XL',10,'X',9,'IX',5,'V',4,'IV',1,'I'];
   for(i=0;i<22;i+=2){
@@ -73,110 +73,110 @@ function toRoman(n){
   }
   return n<1?'':m[i+1]+toRoman(t)
 }
-~~~
+```
 
 In which I move the map of rules into 2 seperate arrays with the same index.
-~~~ javascript
+``` javascript
 function toRoman(n){
   for(i in a=[1000,900,100,90,50,40,10,9,5,4,1]){
     if((t=n-a[i])>=0)break
   }
   return n<1?'':"M,CM,C,XC,L,XL,X,IX,V,IV,I".split(',')[i]+toRoman(t)
 }
-~~~
+```
 
 In which I remove the function name, rip 'toRoman'
-~~~ javascript
+``` javascript
 function r(n){
   for(i in a=[1000,900,100,90,50,40,10,9,5,4,1])
     if((t=n-a[i])>=0)break;
   return n<1?'':"M,CM,C,XC,L,XL,X,IX,V,IV,I".split(',')[i]+r(t)
 }
-~~~
+```
 
 In which I split the roman numeral array on 0 instead of a char (saving 2 chars)
-~~~ javascript
+``` javascript
 function r(n){
   for(i in a=[1000,900,100,90,50,40,10,9,5,4,1])
     if((t=n-a[i])>=0)
       return "M0CM0C0XC0L0XL0X0IX0V0IV0I".split(0)[i]+r(t);
   return ''
 }
-~~~
+```
 
 ## 141 chars
 In which I found out 'for .. in' doesn't guarentee order, so I switch to a standard for loop
-~~~ javascript
+``` javascript
 r=function(n){
   for(i=11;i;)
     if((t=n-[1,4,5,9,10,40,50,90,100,900,1000][--i])>=0)
       return "I0IV0V0IX0X0XL0L0XC0C0CM0M".split(0)[i]+r(t);
   return ''
 }
-~~~
+```
 
 ## 141 chars
 In which I have the idea to combine the roman array and arabic array into one, and split on 'digit' and 'non-digit'
 Unfortunately, this saves no space.
-~~~ javascript
+``` javascript
 r=function(n){
   for(i=11;i;)
     if((t=n-(a="I1IV4V5IX9X10XL40L50XC90C100CM900M1000").split(/\D+/)[i--])>=0)
       return a.split(/\d+/)[i]+r(t);
   return ''
 }
-~~~
+```
 
 ## None of the previous solutions are valid.
 I forgot 2 roman numerals: 'D' (500), and 'CD' (400), so gotta add it, and the space savings from the single data array finally show up!
 #### 154 old way
-~~~ javascript
+``` javascript
 r=function(n){
   for(i=13;i;)
     if((t=n-[1,4,5,9,10,40,50,90,100,400,500,900,1000][--i])>=0)
       return "I0IV0V0IX0X0XL0L0XC0C0CD0D0CM0M".split(0)[i]+r(t);
   return ''
 }
-~~~
+```
 #### 150 new way! 
-~~~ javascript
+``` javascript
 r=function(n){
   for(i=13,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000";i;)
     if((t=n-a.split(/\D+/)[i--])>=0)
       return a.split(/\d+/)[i]+r(t);
   return ''
 }
-~~~
+```
 
 ## 147 chars
 In which we make a single return!
-~~~ javascript
+``` javascript
 r=function(n){
   for(i=13,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000";i;)
     if((t=n-a.split(/\D+/)[i--])>=0)
       return a.split(/\d+/)[i]+(t?r(t):'')
   }
-~~~
+```
 
 ## 139 Chars
 time to use ECMA6 arrow notation to make it tweetable:
-~~~ javascript
+``` javascript
 r=n=>{
   for(i=13,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000";i;)
     if((t=n-a.split(/\D+/)[i--])>=0)
       return a.split(/\d+/)[i]+(t?r(t):'')
 }
-~~~
+```
 
 # 125 chars
 Golfed down with help, removed the for loop, and call the function recursively for that. using ecma6 default parameters
 note: now the function is one time use, since `i` set outside of it.
-~~~ javascript
+``` javascript
 i=13;
 r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=>
   i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
-~~~
+```
 # Final one liner:
-~~~ javascript
+{% highlight javascript %}
 i=13;r=(n,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000",t=n-a.split(/\D+/)[i])=>i--?t>=0?a.split(/\d+/)[i]+r(t):r(n):''
-~~~
+{% endhighlight %}
