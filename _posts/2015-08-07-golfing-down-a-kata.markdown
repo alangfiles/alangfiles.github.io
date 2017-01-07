@@ -160,7 +160,7 @@ r=function(n){
 
 ## 139 Chars
 time to use ECMA6 arrow notation to make it tweetable:
-``` javascript
+```javascript
 r=n=>{
   for(i=13,a="I1IV4V5IX9X10XL40L50XC90C100CD400D500CM900M1000";i;)
     if((t=n-a.split(/\D+/)[i--])>=0)
