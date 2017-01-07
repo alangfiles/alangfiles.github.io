@@ -5,12 +5,9 @@ date:   2015-10-29 10:00:00
 categories: code problem
 ---
 
-
-# On solving a problem:
-
 I thought of a problem today. If you have a sorted deck of cards, and are able to perfectly rifle shuffle it, how many shuffles do you need until the deck's back in sorted order.[*]
 
-### fun right? 
+fun right? 
 
 Intuitevly, I felt like the answer should be like 26 or 52, no good reason, just a gut feeling. Maybe some sort of power of 2 thing, since the shuffle really reeks of 'power of 2' type work.
 
