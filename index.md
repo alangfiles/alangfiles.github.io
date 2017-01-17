@@ -1,5 +1,3 @@
 ---
-layout: none
+layout: index
 ---
-
-# Hi Y'all
