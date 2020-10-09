@@ -5,16 +5,19 @@
     <meta charset="utf-8" />
     <title>Alan Files</title>
     <style>
+      .user-image {
+        border-radius: 50%;
+        max-height: 7rem;
+        max-width: 7rem;
+      }
       body {
         text-align: left;
         background-color: #aaa;
 
         font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-size: 13px;
+        font-size: 18px;
       }
-      img {
-        border-radius: 5px;
-      }
+
       h1 {
         color: #333;
       }
@@ -33,7 +36,6 @@
         padding: 15px;
       }
       #background-rule-30 {
-        opacity: 0.08;
         line-height: 0.615;
         text-align: center;
         overflow: hidden;
@@ -52,11 +54,51 @@
         margin: 2em;
         z-index: 1;
       }
+
+      #heading {
+        display: flex;
+      }
+
+      .shadow {
+        color: rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.5;
+        }
+      }
+      .pulse {
+        animation: pulse 3s ease-out;
+        animation-iteration-count: 4;
+        opacity: 0.5;
+      }
     </style>
   </head>
   <body onload="rule30()">
     <div id="content">
-      <h1>Alan Files</h1>
+      <div id="heading">
+        <div>
+          <h1>Alan Files</h1>
+          <p>
+            Hi, I'm a software engineer living in Columbus, Ohio. I'm interested
+            in Software Development, Security, Programming, and how these things
+            make their way into the real world.
+          </p>
+        </div>
+        <img
+          height="130"
+          width="130"
+          src="alan-profile.jpeg"
+          class="user-image"
+        />
+      </div>
       <a class="icon" href="http://github.com/alangfiles">Github</a> |
       <a class="icon" href="http://stackoverflow.com/users/2004878/alan-files"
         >StackOverflow</a
@@ -65,9 +107,7 @@
       <a class="icon" href="https://www.linkedin.com/in/alangfiles/"
         >LinkedIn</a
       >
-      |
-      <a class="icon" href="resume.html">Resume</a>
-
+      <hr />
       <p>Things I've made:</p>
       <ul>
         <li>
@@ -153,7 +193,9 @@
         </li>
       </ul>
     </div>
-    <div id="background-rule-30"><pre id="rule30"></pre></div>
+    <div id="background-rule-30">
+      <pre id="rule30" class="pulse shadow"></pre>
+    </div>
 
     <script>
       const rule30 = () => {
