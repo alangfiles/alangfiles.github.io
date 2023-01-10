@@ -7,8 +7,8 @@
     <style>
       .user-image {
         border-radius: 50%;
-        max-height: 7rem;
-        max-width: 7rem;
+        max-height: 200px;
+        max-width: 200px;
       }
       body {
         text-align: left;
@@ -90,6 +90,10 @@
         display: flex;
         align-items: center;
       }
+      .proj-img{
+        padding: 10px;
+        max-width: 256px;
+      }
     </style>
   </head>
   <body onload="rule30()">
@@ -116,18 +120,54 @@
             >
           </div>
           <p>
-            A passionate software engineering leader with over 10 years of
+            I'm a passionate software engineering leader with over 10 years of
             professional experience. I enjoy helping engineers level up their
-            skills and find their niche in the software development world. I’m
-            also interested in data analytics, software design (front end and
-            back end), and building products. I enjoy learning new technologies
-            and knowledge domains and trying to push my limits on gathering new
-            knowledge and the accurate application of what I already know.
+            skills and find their niche in the software development world.
+            <br/>
+            <br/>
+            But this page is about fun things I've made.
           </p>
         </div>
       </div>
 
       <hr />
+      <div class="inline">
+        <img
+          src="corgssim.jpg"
+          class="proj-img"
+        />
+
+        <div class="vertical">
+          <h3>April, 2022</h3>
+          <p>
+            <a href="https://alangfiles.github.io/corgs-simulator/"
+              >CORGS Simulator</a
+            >
+            - A NES game I made in 2022, written in C, compiled to 6502 ASM.
+            This game was burned onto chips, soldered onto carts, and given away
+            at the Columbus Ohio Retro Gaming Society (CORGS) convention.
+          </p>
+        </div>
+      </div>
+
+      <div class="inline">
+        <img
+          src="reversenes.jpg"
+          class="proj-img"
+        />
+
+        <div class="vertical">
+          <h3>November, 2021</h3>
+          <p>
+            <a href="https://gist.github.com/alangfiles/503ff767eb990af87b7e63a3ff1a50f1"
+              >Reverse NES Controller</a
+            >
+            - A reversed NES controller I made, designing and printing the PCB, designing and 3D printing the case, and soldering together over 10 iterations. 
+          </p>
+        </div>
+      </div>
+
+      
       <!-- <p>Things I've made:</p>
       <ul>
         <li>
