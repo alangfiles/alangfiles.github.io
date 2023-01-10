@@ -12,9 +12,11 @@
       }
       body {
         text-align: left;
+        max-width: 1024px;
+        margin: 0 auto;
         background-color: #aaa;
 
-        font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-family: sans-serif;
         font-size: 18px;
       }
 
@@ -58,6 +60,10 @@
       #heading {
         display: flex;
       }
+      #heading img {
+        padding: 20px;
+        height: 300px;
+      }
 
       .shadow {
         color: rgba(0, 0, 0, 0.1);
@@ -79,36 +85,50 @@
         animation-iteration-count: 4;
         opacity: 0.5;
       }
+
+      .inline {
+        display: flex;
+        align-items: center;
+      }
     </style>
   </head>
   <body onload="rule30()">
     <div id="content">
       <div id="heading">
-        <div>
-          <h1>Alan Files</h1>
-          <p>
-            Hi, I'm a software engineer living in Columbus, Ohio. I'm interested
-            in Software Development, Security, Programming, and how these things
-            make their way into the real world.
-          </p>
-        </div>
         <img
-          height="130"
-          width="130"
+          height="200"
+          width="200"
           src="alan-profile.jpeg"
           class="user-image"
         />
+        <div>
+          <div class="inline">
+            <h1>Alan Files</h1>
+            <a class="icon" href="http://github.com/alangfiles">Github</a> |
+            <a class="icon" href="https://www.linkedin.com/in/alangfiles/"
+              >LinkedIn</a
+            >
+            |
+            <a
+              class="icon"
+              href="http://stackoverflow.com/users/2004878/alan-files"
+              >StackOverflow</a
+            >
+          </div>
+          <p>
+            A passionate software engineering leader with over 10 years of
+            professional experience. I enjoy helping engineers level up their
+            skills and find their niche in the software development world. I’m
+            also interested in data analytics, software design (front end and
+            back end), and building products. I enjoy learning new technologies
+            and knowledge domains and trying to push my limits on gathering new
+            knowledge and the accurate application of what I already know.
+          </p>
+        </div>
       </div>
-      <a class="icon" href="http://github.com/alangfiles">Github</a> |
-      <a class="icon" href="http://stackoverflow.com/users/2004878/alan-files"
-        >StackOverflow</a
-      >
-      |
-      <a class="icon" href="https://www.linkedin.com/in/alangfiles/"
-        >LinkedIn</a
-      >
+
       <hr />
-      <p>Things I've made:</p>
+      <!-- <p>Things I've made:</p>
       <ul>
         <li>
           <a href="http://alangfiles.github.io/MapAge/">MapAge</a>
@@ -191,7 +211,7 @@
           - a handmade js game, made in concert with github user
           <a href="http://github.com/bigmark641">bigmark641</a>
         </li>
-      </ul>
+      </ul> -->
     </div>
     <div id="background-rule-30">
       <pre id="rule30" class="pulse shadow"></pre>
